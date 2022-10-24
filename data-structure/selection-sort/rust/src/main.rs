@@ -18,13 +18,11 @@ fn main() {
     for i in 0..length {
         arr[i] = rand::thread_rng().gen_range(1..=1000);
         print!("{} ", arr[i]);
-        std::io::stdout().flush().unwrap();
     }
     sort(&mut arr, length);
     println!("\nSorted array: ");
     for i in 0..length {
         print!("{} ", arr[i]);
-        std::io::stdout().flush().unwrap();
     }
 }
 
