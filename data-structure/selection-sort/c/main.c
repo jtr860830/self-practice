@@ -1,18 +1,17 @@
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #define MAX_SIZE 100
 #define SWAP(x, y, t) ((t) = (x), (x) = (y), (y) = (t))
 
-void sort(int arr[], int length) {
-  for (int i = 0; i < length - 1; i++) {
-    int min_idx = i, temp;
-    for (int j = i + 1; j < length; j++) {
-      if (arr[j] < arr[min_idx])
-        min_idx = j;
+void sort(int arr[], int len) {
+  for (int i = 0; i < len - 1; i++) {
+    int min = i, temp;
+    for (int j = i + 1; j < len; j++) {
+      if (arr[j] < arr[min])
+        min = j;
     }
-    SWAP(arr[min_idx], arr[i], temp);
+    SWAP(arr[min], arr[i], temp);
   }
 }
 
