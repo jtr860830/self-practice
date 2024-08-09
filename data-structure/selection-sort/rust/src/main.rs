@@ -1,6 +1,8 @@
 use rand::Rng;
 use std::io::Write;
 
+use selection_sort::sort;
+
 fn main() {
     let mut input: String = String::new();
     const MAX_SIZE: usize = 100;
@@ -23,18 +25,5 @@ fn main() {
     println!("\nSorted array: ");
     for num in &arr[0..length] {
         print!("{num} ");
-    }
-}
-
-fn sort(arr: &mut [i32]) {
-    let len = arr.len();
-    for i in 0..(len - 1) {
-        let mut min = i;
-        for j in (i + 1)..len {
-            if arr[j] < arr[min] {
-                min = j;
-            }
-        }
-        arr.swap(i, min);
     }
 }
