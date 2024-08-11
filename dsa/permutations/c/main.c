@@ -6,14 +6,14 @@ void swap(char *a, char *b) {
   *b = temp;
 }
 
-void perm(char *list, int i, int n) {
+void perm(char *list, size_t i, size_t n) {
   if (i == n) {
-    for (int j = 0; j <= n; j++) {
+    for (size_t j = 0; j <= n; j++) {
       printf("%c", list[j]);
     }
     puts("");
   } else {
-    for (int j = i; j <= n; j++) {
+    for (size_t j = i; j <= n; j++) {
       swap(&list[i], &list[j]);
       perm(list, i + 1, n);
       swap(&list[i], &list[j]);

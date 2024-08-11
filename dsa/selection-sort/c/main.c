@@ -4,10 +4,10 @@
 #define MAX_SIZE 100
 #define SWAP(x, y, t) ((t) = (x), (x) = (y), (y) = (t))
 
-void sort(int arr[], int len) {
-  for (int i = 0; i < len - 1; i++) {
+void sort(int arr[], size_t len) {
+  for (size_t i = 0; i < len - 1; i++) {
     int min = i, temp;
-    for (int j = i + 1; j < len; j++) {
+    for (size_t j = i + 1; j < len; j++) {
       if (arr[j] < arr[min])
         min = j;
     }
@@ -25,7 +25,7 @@ int main(void) {
     exit(EXIT_FAILURE);
   }
 
-  for (int i = 0; i < n; i++) {
+  for (size_t i = 0; i < n; i++) {
     arr[i] = rand() % 1000;
     printf("%d ", arr[i]);
   }
@@ -33,7 +33,7 @@ int main(void) {
   sort(arr, n);
 
   puts("\nSorted array: ");
-  for (int i = 0; i < n; i++) {
+  for (size_t i = 0; i < n; i++) {
     printf("%d ", arr[i]);
   }
 
