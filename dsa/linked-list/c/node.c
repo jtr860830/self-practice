@@ -5,12 +5,12 @@
 #include "node.h"
 
 struct Node {
-  char *key;
+  const char *key;
   int value;
   node_t *next;
 };
 
-node_t *new_node(char *key, int value) {
+node_t *new_node(const char *const key, int value) {
   node_t *node = malloc(sizeof(node_t));
   if (node == NULL) {
     fprintf(stderr, "Failed to allocate memory for node\n");
@@ -22,18 +22,26 @@ node_t *new_node(char *key, int value) {
   return node;
 }
 
-void free_node(node_t *node) { free(node); }
+void free_node(node_t *const node) { free(node); }
 
-int node_get_value(node_t *node) { return node->value; }
+int node_get_value(const node_t *const node) { return node->value; }
 
-int node_set_value(node_t *node, int value) { return node->value = value; }
+int node_set_value(node_t *const node, int value) {
+  return node->value = value;
+}
 
-char *node_get_key(node_t *node) { return node->key; }
+const char *node_get_key(const node_t *const node) { return node->key; }
 
-int node_cmp_key(node_t *node, char *key) { return strcmp(node->key, key); }
+int node_cmp_key(const node_t *const node, const char *key) {
+  return strcmp(node->key, key);
+}
 
-char *node_set_key(node_t *node, char *key) { return node->key = key; }
+const char *node_set_key(node_t *const node, const char *key) {
+  return node->key = key;
+}
 
-node_t *node_get_next(node_t *node) { return node->next; }
+node_t *node_get_next(const node_t *const node) { return node->next; }
 
-node_t *node_set_next(node_t *node, node_t *next) { return node->next = next; }
+node_t *node_set_next(node_t *const node, node_t *const next) {
+  return node->next = next;
+}

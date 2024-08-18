@@ -50,7 +50,7 @@ node_t *list_find_node(list_t *list, char *key) {
 void list_print(list_t *list) {
   node_t *current = list->head;
   while (current != NULL) {
-    char *key = node_get_key(current);
+    const char *key = node_get_key(current);
     int value = node_get_value(current);
     printf("%s:%02x -> ", key, value);
     current = node_get_next(current);
@@ -87,13 +87,13 @@ bool list_insert_before(list_t *list, node_t *target, node_t *node) {
   if (target == NULL) {
     return false;
   }
-  node_set_next(node, target);
   node_t **indirect = &list->head;
   while (*indirect != target) {
     node_t *tmp = node_get_next(*indirect);
     indirect = &tmp;
   }
   *indirect = node;
+  node_set_next(node, target);
   list->length++;
   return true;
 }
